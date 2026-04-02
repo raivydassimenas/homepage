@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i ./src/input.css -o ./src/output.css",
-    "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch"
+    "dev": "tailwindcss -i ./src/input.css -o ./src/output.css --watch",
+    "build:css": "pnpm exec tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "build:html": "cp ./src/index.html ./dist/index.html",
+    "build": "mkdir -p dist && pnpm run build:css && pnpm run build:html"
   },
   "keywords": [],
   "author": "",
